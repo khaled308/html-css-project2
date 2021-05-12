@@ -1,0 +1,425 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    width: 60%;
+    margin: auto;
+}
+.header{
+    width: 100%;
+    position: relative;
+    height: 100vh;
+    user-select: none;
+}
+.sub-header{
+    width: 100%;
+    background-color: #333;
+    /* height: 50px; */
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+}
+.sub-header .icon{
+    width: 80px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    transition: all .6s;
+}
+.sub-header .icon:hover{
+    background-color: orangered;
+}
+/* toggle */
+.toggle{
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    width: 40px;
+    height: 21px;
+    display: none;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+.toggle .bar{
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+/**************************************************/
+.sub-header> ul{
+    list-style: none;
+    width: 40%;
+    padding: 0 20px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.sub-header ul >li{
+    position: relative;
+    padding: 0 20px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub-header ul li a{
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+}
+.sub-header ul li.end::after{
+    content: "";
+    width: 0;
+    height: 0;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+    position: absolute;
+    top: 25px;
+    right: 5px;
+    cursor: pointer;
+}
+.sub-header ul li.end ul{
+    list-style: none;
+    background-color: #fff;
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .6s;
+}
+.sub-header ul li.end ul li{
+    margin-bottom: 10px;
+    height: 30%;
+    width: 100%;
+}
+.sub-header ul li.end ul a{
+    color: #000;
+    display: block;
+}
+.sub-header ul li:hover{
+    background-color: #ddd;
+}
+.sub-header ul li.end:hover >ul{
+    opacity: 1;
+    visibility: visible;
+}
+.header .main-header{
+    height: 100%;
+    width: 100%;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+}
+.header .main-header img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+@media(max-width:667px){
+    .sub-header{
+        flex-direction: column;
+    }
+    .sub-header .icon{
+     display: none;
+    }
+    .toggle{
+        display: flex;
+    }
+    .sub-header> ul.active-list{
+        flex-direction: column;
+        height: 35vh;
+        width: 100%;
+    }
+    .sub-header ul >li{
+       padding: 20px 0;
+       width: 30%;
+    }
+    .sub-header ul >li:not(:first-child){
+        display: none;
+    }
+    .sub-header ul >li.hidden.active{
+        display: block;
+    }
+}
+.about{
+    padding: 100px 0;
+    text-align: center;
+}
+.about .info h1{
+    margin-bottom: 20px;
+    letter-spacing: 6px;
+    text-transform: capitalize;
+}
+.about .info h3{
+    margin: 15px;
+    opacity: .4;
+}
+.about .info p{
+    line-height: 1.6;
+}
+.about .members{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-transform: capitalize;
+}
+.about .members h2{
+    margin-bottom: 15px;
+}
+@media(max-width:768px){
+    .about .info h1,h3{
+        font-size: 15px;
+    }
+}
+.offer{
+    background-color: #000;
+    color: #fff;
+    padding: 100px 0;
+}
+.offer .container> h2{
+    margin-bottom: 25px;
+    text-transform: capitalize;
+    letter-spacing: 5px;
+    font-size: 36px;
+    text-align: center;
+}
+.offer .container> h3{
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.offer ul{
+    list-style: none;
+    background-color: #fff;
+    color: #444;
+    margin-bottom: 30px;
+}
+.offer ul li{
+    padding: 20px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, .4);
+    text-transform: capitalize;
+}
+.offer ul li:not(:last-child) span{
+    background-color: #f44336;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px;
+    margin-left: 15px;
+}
+.offer ul li:last-child{
+    display: flex;
+    justify-content: space-between;
+}
+.offer ul li:last-child span{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    margin-right: 20px;
+}
+.offer .places{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.offer .places>div{
+    width: 30%;
+    background-color: #fff;
+    color: #000;
+    position: relative;
+}
+.offer .places>div .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .6s;
+}
+.offer .places>div .top{
+    width: 100%;
+    height: 50%;
+    position: relative;
+}
+.offer .places .top img{
+    width: 100%;
+    height: 100%;
+}
+.offer .places .top:hover .overlay{
+    opacity: .3;
+    visibility: visible;
+}
+.offer .places>div h2,h3{
+    padding: 10px;
+    text-transform: capitalize;
+    font-size: 16px;
+}
+.offer .places>div h3{
+    color: #666;
+    font-weight: bold;
+}
+.offer .places>div p{
+    padding: 0 10px;
+    margin-bottom: 15px;
+}
+.offer .places>div button{
+    color: #fff;
+    text-transform: capitalize;
+    border: none;
+    background-color: #000;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all .3s;
+}
+.offer .places>div button:hover{
+    background-color: #ccc;
+    color: #000;
+}
+@media(max-width:1243px){
+    .offer .places>div{
+        height: fit-content;
+        padding-bottom: 10px;
+    }
+}
+@media(max-width:768px){
+    .container{
+        width: 95%;
+    }
+    .offer .container> h2{
+        font-size: 20px;
+    }
+    .offer .container> h3{
+        font-size: 12px;
+    }
+    .offer ul li{
+        font-size: 12px;
+    }
+    .offer ul li span{
+        font-size: 10px;
+        float: right;
+    }
+    .offer ul li:last-child span{
+        margin-right: 0px;
+        width: 20px;
+        height: 20px;
+    }
+    .offer .places{
+        flex-direction: column;
+    }
+    .offer .places>div{
+        width: 100%;
+    }
+}
+.contact{
+    padding: 100px 0;
+    background-color: #fff;
+}
+.contact h2{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    margin-bottom: 15px;
+}
+.contact h3{
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+}
+.contact-mean{
+    display: flex;
+    justify-content: space-between;
+}
+.contact-mean .icons{
+    width: 40%;
+}
+.contact-mean .icon{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+.contact-mean .icon h4{
+    width: 85%;
+}
+.contact-mean .icon i{
+    font-size: 18px;
+}
+.contact-mean .application{
+    width: 50%;
+}
+.contact-mean .application form{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    width: 100%;
+}
+.contact-mean .application input{
+    border: 1px solid silver;
+    outline: none;
+    padding: 10px;
+}
+.contact-mean .application input.name,
+.contact-mean .application input.email{
+    width: 48%;
+    display: inline-block;
+}
+.contact-mean .application input.message{
+    width: 100%;
+    margin: 10px 0;
+}
+@media(max-width:768px){
+    .contact-mean{
+        flex-direction: column;
+    }
+    .contact-mean .icons{
+        width: 100%;
+    }
+    .contact-mean .application input.name,
+    .contact-mean .application input.email{
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .contact-mean .application input.message{
+        margin: 0 0 15px;
+    }
+}
+section{
+    width: 100%;
+}
+section img{
+    width: 100%;
+}
